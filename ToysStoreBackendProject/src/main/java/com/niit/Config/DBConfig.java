@@ -9,9 +9,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 
+import com.niit.DAO.CategoryDAO;
+import com.niit.DAOImpl.CategoryImpl;
 import com.niit.model.Category;
+import com.niit.model.Product;
+import com.niit.model.User;
 @Configuration
 @ComponentScan(basePackages={"com.niit"})
 
@@ -40,6 +45,8 @@ public class DBConfig {
 		
 		LocalSessionFactoryBuilder factoryBuilder=new LocalSessionFactoryBuilder(getH2DataSource());
 		factoryBuilder.addAnnotatedClass(Category.class);
+		factoryBuilder.addAnnotatedClass(Product.class);
+		factoryBuilder.addAnnotatedClass(User.class);
 		factoryBuilder.addProperties(hibernateProp);
 		
 		System.out.println("Creating SessionFactory Bean");
@@ -47,4 +54,21 @@ public class DBConfig {
 	}
 	
 
+	@Bean(name="categoryDAO")
+	public CategoryDAO getCategoryDAO()
+	{
+		System.out.println("----DAO Implementation---");
+		return new CategoryImpl();
+	}
+	
+	@Bean(name="txManager")
+	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory)
+	{
+		System.out.println("---Transaction Manager----");
+		return new HibernateTransactionManager(sessionFactory);
+	}
+	
+	
+
+	
 }
