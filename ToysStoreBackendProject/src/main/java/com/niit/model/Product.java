@@ -17,7 +17,9 @@
 			@GeneratedValue
 			private int ProductID;
 			private String  ProductName;
+			private int  ProductPrice;
 			private String  ProductDesc;
+			private int  ProductInStock;
 			
 			public int getProductID() {
 				return ProductID;
@@ -36,6 +38,18 @@
 			}
 			public void setProductDesc(String productDesc) {
 				ProductDesc = productDesc;
+			}
+			public int getProductPrice() {
+				return ProductPrice;
+			}
+			public void setProductPrice(int productPrice) {
+				ProductPrice = productPrice;
+			}
+			public int getProductInStock() {
+				return ProductInStock;
+			}
+			public void setProductInStock(int productInStock) {
+				ProductInStock = productInStock;
 			}
 			
 			

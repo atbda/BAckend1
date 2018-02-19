@@ -9,12 +9,11 @@ import org.springframework.stereotype.Service;
 import com.niit.DAO.CategoryDAO;
 import com.niit.model.Category;
 
-@Repository(value="Cs")
+@Repository(value="category")
 public class CategoryImpl implements CategoryDAO {
 	@Autowired
 	SessionFactory sessionFactory;
 
-	@Override
 	public void addCategory(Category ca) {
 
 		Session session=sessionFactory.openSession();

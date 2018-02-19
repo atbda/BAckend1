@@ -8,7 +8,7 @@
 	import com.niit.DAO.ProductDAO;
 	import com.niit.model.Product;
 
-	@Repository(value="ps")
+	@Repository(value="product")
 
 	public class ProductImpl  implements ProductDAO 
 	{
@@ -44,7 +44,6 @@
 			
 			}
 
-			@Override
 			public void getProduct(Product pg) {
 			
 				

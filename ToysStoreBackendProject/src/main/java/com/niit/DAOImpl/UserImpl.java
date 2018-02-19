@@ -13,7 +13,7 @@ import com.niit.model.User;
 	
 
 
-	@Repository(value="us")
+	@Repository(value="user")
 
 	public  class UserImpl  implements UserDAO 
 	
@@ -21,10 +21,10 @@ import com.niit.model.User;
 		
 			@Autowired
 			SessionFactory sessionFactory;
-			public void addUser(User ua) {
+			public void addUser(User user) {
 
 				Session session=sessionFactory.openSession();
-		session.beginTransaction(); session.save(ua);
+		session.beginTransaction(); session.save(user);
 		session.getTransaction().commit();
 		session.close();
 			
@@ -42,17 +42,16 @@ import com.niit.model.User;
 			
 			}
 
-			public void updateUser(User uu) {
+			public void updateUser(User uid) {
 
 				Session session=sessionFactory.openSession();
-		session.beginTransaction(); session.update(uu);
+		session.beginTransaction(); session.update(uid);
 		session.getTransaction().commit();
 		session.close();
 			
 			}
 
-			@Override
-			public void getUser(User ug) {
+			public void getUser(User uid) {
 			
 				
 			}

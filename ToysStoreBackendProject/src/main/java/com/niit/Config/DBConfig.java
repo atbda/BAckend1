@@ -16,6 +16,7 @@ import com.niit.DAO.CategoryDAO;
 import com.niit.DAOImpl.CategoryImpl;
 import com.niit.model.Category;
 import com.niit.model.Product;
+import com.niit.model.Supplier;
 import com.niit.model.User;
 @Configuration
 @ComponentScan(basePackages={"com.niit"})
@@ -47,6 +48,7 @@ public class DBConfig {
 		factoryBuilder.addAnnotatedClass(Category.class);
 		factoryBuilder.addAnnotatedClass(Product.class);
 		factoryBuilder.addAnnotatedClass(User.class);
+		factoryBuilder.addAnnotatedClasses(Supplier.class);
 		factoryBuilder.addProperties(hibernateProp);
 		
 		System.out.println("Creating SessionFactory Bean");
